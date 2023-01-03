@@ -11,8 +11,8 @@ Pada tugas besar Pengembangan Aplikasi Website (WAD) ini kami membuat sebuah web
 Kami merupakan kelompok 4 (lokerkuID) yang berasal dari kelas SI-44-03, program studi S1 Sistem Informasi, Telkom University. Kami beranggotakan 5 orang, diantaranya:
 
 - Achmad Rozan Chaidir 	    (1202204286)
-- Novia Pindan Giang	    (1202204065)
 - Melati Puspa Vania 		(1202204065)
+- Novia Pindan Giang	    (1202204065)
 - Salsabil syifa Al Maura 	(1202204007)
 - Sulaiman Ilhan Mahendra 	(1202204166)
 
