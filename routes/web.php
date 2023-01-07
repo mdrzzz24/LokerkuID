@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,22 +15,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('user.index');
 });
-Route::get('/findjob', function () {
-    return view('findjob');
+// Route::get('/findjob', function () {
+//     return view('findjob');
+// });
+// Route::get('/training', function () {
+//     return view('training');
+// });
+// Route::get('/article', function () {
+//     return view('article');
+// });
+// Route::get('/about', function () {
+//     return view('about');
+// });
+// Route::get('/jobdetail', function () {
+//     return view('jobdetail');
+// });
+
+Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
+    Route::get('/', function() {
+        return view('admin.AdminIndex');
+    });
 });
-Route::get('/training', function () {
-    return view('training');
+Route::prefix('company')->middleware('auth','isCom')->group(function(){
+    Route::get('/', function() {
+        return view('company.CompanyIndex');
+    });
 });
-Route::get('/article', function () {
-    return view('article');
-});
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/jobdetail', function () {
-    return view('jobdetail');
+Route::prefix('user')->middleware('auth','isUser')->group(function(){
+    Route::get('/', function() {
+        return view('user.index');
+    });
 });
 
 Auth::routes();

@@ -1,4 +1,4 @@
-@extends('navfooter')
+@extends('user.navfooter')
 @section('body')
       <img style="width: 100%; filter: brightness(50%);" src="assets/meja.jpg" alt="">
       <div class="container">
