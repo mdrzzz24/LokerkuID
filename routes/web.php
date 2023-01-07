@@ -32,6 +32,9 @@ Route::get('/', function () {
 // Route::get('/jobdetail', function () {
 //     return view('jobdetail');
 // });
+Route::get('/compregist', function () {
+    return view('companyregist');
+});
 
 Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
     Route::get('/', function() {
