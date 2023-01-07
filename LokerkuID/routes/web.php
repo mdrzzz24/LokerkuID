@@ -36,16 +36,27 @@ Route::get('/compregist', function () {
     return view('companyregist');
 });
 
+
 Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
     Route::get('/', function() {
         return view('admin.AdminIndex');
     });
 });
+
+
 Route::prefix('company')->middleware('auth','isCom')->group(function(){
-    Route::get('/', function() {
+    Route::get('home', function() {
         return view('company.CompanyIndex');
     });
+    Route::get('/training', function() {
+        return view('company.Training');
+    });
+    Route::get('/profile', function() {
+        return view('company.CompanyProfile');
+    });
 });
+
+
 Route::prefix('user')->middleware('auth','isUser')->group(function(){
     Route::get('/', function() {
         return view('user.index');
