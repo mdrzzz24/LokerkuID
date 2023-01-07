@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LokerkuID</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   </head>
@@ -17,7 +17,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="findjob">Find a Job</a>
@@ -26,68 +26,67 @@
                 <a class="nav-link" href="training">Training</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="article">Article</a>
+                <a class="nav-link">Article</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about">About Us</a>
+                <a class="nav-link">About Us</a>
               </li>
             </ul>
-          </div>
-          <div style="width: 300px;" class="container text-end">
-            {{-- <a href="log">
-                <button class="btn btn-secondary">
-                    Login
-                </button>
-            </a>
-            <div class="user dropdown">
-              <button class="btn btn-outline-secondary dropdown-toggle" type="button">
-                <img style="width: 30px;" src="assets/user.png">
-                Login
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-              </ul> --}}
-              <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </ul>
-            </div>
           </div>
         </div>
       </nav>
+    <div style="width: 50%;" class="container-fluid">
+        <center>
+            <h3 class="mt-4">Search For Training<br>To Improve Your Skills</h3>
+            <form class="row">
+                <div class="row mt-4">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Search Training" aria-label="Training">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3">Find</button>
+                    </div>
+              </form>
 
-      @yield('body')
+        </center>
+    </div>
+    <div class="container">
+
+        <div class="container border border-1 rounded-4 w-75 p-3">
+            <h5 class="fw-semibold">Web Developer</h5>
+            <h6>From : PT Multi Kontrol Nusantara</h6>
+            <p>Train to be Full Stack Web Developer</p>
+            <form action="" method="post">
+                <button class="btn btn-primary" type="submit">See Detail</button>
+            </form>
+        </div>
+        <div class="container border border-1 rounded-4 w-75 p-3 mt-3">
+            <h5 class="fw-semibold">Backend Java Programmer</h5>
+            <h6>From : PT Sarana Pactindo</h6>
+            <p>Train to be Backend Java Programmer</p>
+            <form action="" method="post">
+                <button class="btn btn-primary" type="submit">See Detail</button>
+            </form>
+        </div>
+        <div class="container border border-1 rounded-4 w-75 p-3 mt-3">
+            <h5 class="fw-semibold">Content Creator</h5>
+            <h6>From : Bengawan Jaya Abadi</h6>
+            <p>Train to be profesional content crator</p>
+            <form action="" method="post">
+                <button class="btn btn-primary" type="submit">See Detail</button>
+            </form>
+        </div>
+        <div class="container border border-1 rounded-4 w-75 p-3 mt-3 mb-3">
+            <h5 class="fw-semibold">Marketing Executive</h5>
+            <h6>From : Tatonas</h6>
+            <p>Train to be Maketing Executive</p>
+            <form action="" method="post">
+                <button class="btn btn-primary" type="submit">See Detail</button>
+            </form>
+        </div>
+
+
+    </div>
           <footer>
             <div class="container-fluid-100" style="background-color: rgb(96, 96, 96);">
               <div class="container text-center">
