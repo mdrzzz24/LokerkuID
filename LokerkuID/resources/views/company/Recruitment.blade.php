@@ -66,19 +66,20 @@
                         <h6 class="text-start">Experience</h6>
                         <select name="experience" class="form-select" aria-label="Default select example">
                             <option selected>Open this select menu</option>
-                            <option value="1">Fresh Graduate</option>
-                            <option value="2">1 - 3 Years</option>
-                            <option value="3">3 - 5 Years </option>
-                            <option value="4">5 - 10 Years</option>
-                            <option value="5">More than 10 Years</option>
+                            <option value="freshgraduate">Fresh Graduate</option>
+                            <option value="1-3">1 - 3 Years</option>
+                            <option value="3-5">3 - 5 Years </option>
+                            <option value="5-10">5 - 10 Years</option>
+                            <option value="10up">More than 10 Years</option>
                           </select>
                     </div>
-                    <div class="container text-start">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Remote Working</label>
-                        </div>
-                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="yes" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                          Remote Working
+                        </label>
+                      </div>
+
                     <div class="mb-3 mt-3">
                         <h6 class="text-start">Description</h6>
                             <div class="">

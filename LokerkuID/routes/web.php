@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,9 +55,7 @@ Route::prefix('user')->middleware('auth','isUser')->group(function(){
     Route::get('/', function() {
         return view('user.index');
     });
-    Route::get('/findjob', function () {
-        return view('user.findjob');
-    });
+    Route::get('/findjob', [UserController::class, 'showjobs']);
     Route::get('/training', function () {
         return view('user.training');
     });
@@ -70,6 +69,8 @@ Route::prefix('user')->middleware('auth','isUser')->group(function(){
         return view('user.jobdetail');
     });
 });
+
+
 
 Auth::routes();
 

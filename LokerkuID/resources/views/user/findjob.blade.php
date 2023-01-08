@@ -142,17 +142,19 @@
                                 <div class="border border-3 rounded-4 p-3">
                                     <h4>Job Found</h4>
                                     <div class="row mb-4">
+                                        @foreach ($job as $j)
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                           <div class="card border border-1">
                                             <div class="card-body text-start mx-3">
-                                              <h5 class="card-title fw-semibold">Business Analyst</h5>
-                                              <h6>PT BSR INDONESIA</h6>
-                                              <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Joglo, Jakarta<br>
-                                              <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">The company does not display salary<br>
+                                              <h5 class="card-title fw-semibold">{{ $j->jobname }}</h5>
+                                              <h6>{{ $j->recruitor }}</h6>
+                                              <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">{{ $j->city }}<br>
+                                              <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp {{ $j->salary }}/month<br>
                                               <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
                                             </div>
                                           </div>
                                         </div>
+                                  @endforeach
                                         <div class="col-sm-6">
                                             <div class="card border border-1">
                                                 <div class="card-body text-start mx-3">
