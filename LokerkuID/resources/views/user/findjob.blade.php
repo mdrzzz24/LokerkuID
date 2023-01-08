@@ -143,102 +143,21 @@
                                     <h4>Job Found</h4>
                                     <div class="row mb-4">
                                         @foreach ($job as $j)
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <div class="col-sm-6 mb-3 mb-sm-0 mt-3">
                                           <div class="card border border-1">
                                             <div class="card-body text-start mx-3">
                                               <h5 class="card-title fw-semibold">{{ $j->jobname }}</h5>
-                                              <h6>{{ $j->recruitor }}</h6>
+                                              <h6>{{ $j->recruiter }}</h6>
                                               <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">{{ $j->city }}<br>
                                               <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp {{ $j->salary }}/month<br>
                                               <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
                                             </div>
                                           </div>
                                         </div>
-                                  @endforeach
-                                        <div class="col-sm-6">
-                                            <div class="card border border-1">
-                                                <div class="card-body text-start mx-3">
-                                                  <h5 class="card-title fw-semibold">Ecommerce Specialist</h5>
-                                                  <h6>PT Sumber Sinergi Makmur</h6>
-                                                  <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Sawah Besar, Jakarta<br>
-                                                  <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp 5.000.000<br>
-                                                  <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                                                </div>
-                                              </div>
-                                        </div>
-                                      </div>
-                                      <div class="row mb-4">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <div class="card border border-1">
-                                              <div class="card-body text-start mx-3">
-                                                <h5 class="card-title fw-semibold">Sales Manager Advertising</h5>
-                                                <h6>Ubiklan</h6>
-                                                <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Cengkareng, Jakarta Barat<br>
-                                                <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">The company does not display salary<br>
-                                                <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-sm-6">
-                                              <div class="card border border-1">
-                                                  <div class="card-body text-start mx-3">
-                                                    <h5 class="card-title fw-semibold">Sales Executive</h5>
-                                                    <h6>PT Cartrack Technologies Indonesia</h6>
-                                                    <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Jakarta Barat<br>
-                                                    <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">The company does not display salary<br>
-                                                    <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                                                  </div>
-                                                </div>
-                                          </div>
-                                      </div>
-                                      <div class="row mb-4">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <div class="card border border-1">
-                                              <div class="card-body text-start mx-3">
-                                                <h5 class="card-title fw-semibold">PHP Programmer</h5>
-                                                <h6>PT Cakra Tekno Nusantara</h6>
-                                                <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Jakarta Selatan<br>
-                                                <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">The company does not display salary<br>
-                                                <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-sm-6">
-                                              <div class="card border border-1">
-                                                  <div class="card-body text-start mx-3">
-                                                    <h5 class="card-title fw-semibold">Web Programmer</h5>
-                                                    <h6>PT Floo Integra Digital</h6>
-                                                    <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Sidoarjo<br>
-                                                    <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp 7.000.000<br>
-                                                    <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                                                  </div>
-                                                </div>
-                                          </div>
-                                      </div>
-                                      <div class="row mb-4">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <div class="card border border-1">
-                                              <div class="card-body text-start mx-3">
-                                                <h5 class="card-title fw-semibold">Franchise Manager</h5>
-                                                <h6>PT Nuvens Prima Retail</h6>
-                                                <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Jakarta Barat<br>
-                                                <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp 8.000.000<br>
-                                                <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-sm-6">
-                                              <div class="card border border-1">
-                                                  <div class="card-body text-start mx-3">
-                                                    <h5 class="card-title fw-semibold">Content Creator</h5>
-                                                    <h6>Bengawan Jaya Abadi</h6>
-                                                    <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Sukoharjo<br>
-                                                    <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp 3.000.000<br>
-                                                    <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                                                  </div>
-                                                </div>
-                                          </div>
-                                      </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
                                 </div>
                             </div>
                           </div>

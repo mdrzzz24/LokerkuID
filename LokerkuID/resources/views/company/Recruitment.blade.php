@@ -22,12 +22,15 @@
             <h3 class="text-light m-3">Recruitment | {{ Auth::user()->name }}</h3>
         </div>
         <div class="w3-container">
-            <form action="" method="post">
+            <form action="/company/store" method="post">
+                @csrf
                 <h3 class="text-center fw-semibold mt-3">Recruit Employe</h3>
                 <div class="container w-50">
                     <div class="mb-3 mt-3">
                         <h6 class="text-start">Job Position</h6>
-                        <input name="job" class="form-control" type="text" placeholder="Job Position">
+                        <input name="recruiter" class="form-control" type="text" value="{{ Auth::user()->name }}" hidden>
+                        <input name="status" class="form-control" type="text" value="ongoing" hidden>
+                        <input name="jobname" class="form-control" type="text" placeholder="Job Position">
                     </div>
                     <div class="mb-3 mt-3">
                         <h6 class="text-start">City</h6>
@@ -73,12 +76,23 @@
                             <option value="10up">More than 10 Years</option>
                           </select>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="yes" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Remote Working
-                        </label>
-                      </div>
+                    <div class="mb-3 mt-3">
+                        <h6 class="text-start">Remote Working?</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="remoteworking" value="yes" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="remoteworking" value="no" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              No
+                            </label>
+                          </div>
+                    </div>
+
+
 
                     <div class="mb-3 mt-3">
                         <h6 class="text-start">Description</h6>
@@ -87,7 +101,8 @@
                             </div>
                           </select>
                     </div>
-                    <button class="btn btn-primary" type="submit" name="submit">Publish Recruitment</button>
+                    <input class="btn btn-primary" type="submit" name="save" value="Publish Recruitment">
+
                 </div>
             </form>
         </div>

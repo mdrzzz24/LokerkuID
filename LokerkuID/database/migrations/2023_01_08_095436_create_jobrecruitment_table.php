@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('jobrecruitment', function (Blueprint $table) {
             $table->id();
-            $table->string('recruitor');
+            $table->string('recruiter');
             $table->string('jobname');
             $table->string('city');
             $table->string('salary');

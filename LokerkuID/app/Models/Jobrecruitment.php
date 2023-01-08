@@ -9,5 +9,6 @@ class Jobrecruitment extends Model
 {
     use HasFactory;
     protected $table = 'jobrecruitment';
+    protected $guarded = [];
 
 }

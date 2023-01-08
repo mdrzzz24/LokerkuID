@@ -19,12 +19,53 @@
     <!-- Page Content -->
     <div style="margin-left:15%">
         <div class="w3-container w3-gray">
-            <h3 class="text-light m-3">History | {{ Auth::user()->name }}</h3>
+            <h3 class="text-light m-3">Home | {{ Auth::user()->name }}</h3>
         </div>
-        <div class="w3-container">
-            <h2>Sidebar Navigation Example</h2>
-            <p>The sidebar with is set with "style="width:25%".</p>
-            <p>The left margin of the page content is set to the same value.</p>
+        <div class="container-75 m-5">
+            <h3 class="fw-semibold">History Recruitment</h3>
+            <div class="container border border-2 rounded-4">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Job Position</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Experience</th>
+                        <th scope="col">Remote Working</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $d)
+                      <tr>
+                        <td>{{ $d->jobname }}</td>
+                        <td>{{ $d->city}}</td>
+                        <td>{{ $d->salary }}</td>
+                        <td>{{ $d->type }}</td>
+                        <td>{{ $d->experience }}</td>
+                        <td>{{ $d->remoteworking }}</td>
+                        <td>{{ $d->desc }}</td>
+                        <td>{{ $d->status }}</td>
+                        {{-- <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button type="button" class="btn btn-success rounded-0">Close</button>
+                                    <a href="/company/{{ $d->id }}/edit">
+                                        <button type="button" class="btn btn-warning rounded-0">Update</button>
+                                    </a>
+                                <form action="/company/home/{{ $d->id }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" name="submit" class="btn btn-danger rounded-0" value="Delete">
+                                </form>
+                              </div>
+                            </td> --}}
+                    </tr>
+                    @endforeach
+                    </tbody>
+                  </table>
+            </div>
         </div>
 
     </div>
