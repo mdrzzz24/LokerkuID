@@ -1,4 +1,4 @@
-@extends('navfooter')
+@extends('user.navfooter')
 @section('body')
       <div class="container text-center">
         <img class="w-75" src="assets/Logo LokerkuID.png" alt="">

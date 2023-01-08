@@ -1,4 +1,4 @@
-@extends('navfooter')
+@extends('user.navfooter')
 @section('body')
     <div style="width: 50%;" class="container-fluid">
         <center>

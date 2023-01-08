@@ -19,7 +19,7 @@
     <!-- Page Content -->
     <div style="margin-left:15%">
         <div class="w3-container w3-gray">
-            <h3 class="text-light m-3">Home | {{ Auth::user()->name }}</h3>
+            <h3 class="text-light m-3">History | {{ Auth::user()->name }}</h3>
         </div>
         <div class="w3-container">
             <h2>Sidebar Navigation Example</h2>

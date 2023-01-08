@@ -17,7 +17,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/user">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="findjob">Find a Job</a>
@@ -111,7 +111,7 @@
                     </p>
                   </div>
                   <div style="margin-left:150px;" class="col-8 col-md-4">
-                    <img style="width: 300px; margin-top:60px;" src="assets/Logo LokerkuID putih.png" alt="">
+                    <img style="width: 300px; margin-top:60px;" src="{{ asset('assets/Logo LokerkuID putih.png') }}" alt="">
                     <h6 class="text-white">Copyright 2022</h6>
                   </div>
           </footer>

@@ -1,4 +1,4 @@
-@extends('navfooter')
+@extends('user.navfooter')
 @section('body')
     </div>
       <div class="container">
