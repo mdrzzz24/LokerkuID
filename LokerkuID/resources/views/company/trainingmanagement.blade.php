@@ -38,33 +38,45 @@
     <!-- Page Content -->
     <div style="margin-left:15%">
         <div class="w3-container w3-gray">
-            <h3 class="text-light m-3">Recruitment | {{ Auth::user()->name }}</h3>
+            <h3 class="text-light m-3">Home | {{ Auth::user()->name }}</h3>
         </div>
-        <div class="w3-container">
-            <form action="/company/training/store" method="post">
-                @csrf
-                <h3 class="text-center fw-semibold mt-3">Training</h3>
-                <div class="container w-50">
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Training Name</h6>
-                        <input name="trainer" class="form-control" type="text" value="{{ Auth::user()->name }}" hidden>
-                        <input name="trainingname" class="form-control" type="text" placeholder="Training Name">
-                    </div>
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Training Link</h6>
-                        <input name="link" class="form-control" type="text" placeholder="Training Link">
-                    </div>
-
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Description</h6>
-                            <div class="">
-                                <textarea id="desc" type="textarea" class="form-control" name="description" value="" placeholder="Training Description"></textarea>
+        <div class="container-75 m-5">
+            <h3 class="fw-semibold">Ongoing Recruitment</h3>
+            <div class="container border border-2 rounded-4">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Training Name</th>
+                        <th scope="col">Link</th>
+                        <th scope="col">Descriptio</th>
+                        <th scope="col">Publish At</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $d)
+                      <tr>
+                        <th scope="row">{{ $d->trainingname }}</th>
+                        <td>{{ $d->link }}</td>
+                        <td>{{ $d->description }}</td>
+                        <td>{{ $d->created_at }}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a href="/company/trainingmanagement/{{ $d->id }}/edit">
+                                    <button type="button" class="btn btn-warning rounded-0">Update</button>
+                                </a>
+                            <form action="/company/trainingmanagement/{{ $d->id }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" name="submit" class="btn btn-danger rounded-0" value="Delete">
+                            </form>
                             </div>
-                          </select>
-                    </div>
-                    <input class="btn btn-primary" type="submit" name="save" value="Publish Training">
-                </div>
-            </form>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+            </div>
         </div>
 
     </div>

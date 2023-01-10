@@ -14,7 +14,7 @@
         <a href="admin/article" class="w3-bar-item w3-button">Write Article</a>
         <a href="admin/articlemanagement" class="w3-bar-item w3-button">Article Management</a>
         <div class="w3-dropdown-hover">
-            <button class="w3-button">Admin</button>
+            <button class="w3-button">{{ Auth::user()->name }}</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
                 <div class="w3-bar-item w3-button" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"

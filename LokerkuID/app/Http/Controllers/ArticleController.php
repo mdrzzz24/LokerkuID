@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -19,8 +20,9 @@ class ArticleController extends Controller
     }
     public function articlemanagement()
     {
-        $data = Article::all();
-        return view('admin.articlemanagement',compact(['data']));
+        $data = Article::all()->where('publisher','=',Auth::user()->name);
+        $data2 = Article::all();
+        return view('admin.articlemanagement',compact(['data','data2']));
     }
     public function deletepost($id)
     {

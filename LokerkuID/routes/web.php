@@ -47,14 +47,24 @@ Route::prefix('company')->middleware('auth','isCom')->group(function(){
     Route::get('/training', function() {
         return view('company.Training');
     });
-    Route::get('/profile', function() {
-        return view('company.CompanyProfile');
-    });
+    Route::get('/profile', [CompanyHomeController::class,'profile']);
+    Route::get('/editcomprofile', [CompanyHomeController::class,'editprofile']);
+    Route::get('/changecompanypw', [CompanyHomeController::class,'changepw']);
+    Route::put('/changepw/{id}/edit', [CompanyHomeController::class,'storepw']);
     Route::get('/recruitment', [InsertRecruitmentController::class,'insertrecruitment']);
     Route::post('/store', [InsertRecruitmentController::class,'store']);
+    Route::post('/training/store', [CompanyHomeController::class,'storetraining']);
+    Route::get('/trainingmanagement', [CompanyHomeController::class,'training']);
+    Route::get('/trainingmanagement', [CompanyHomeController::class,'trainingmanagement']);
     Route::get('{id}/edit', [CompanyHomeController::class,'edit']);
     Route::get('history', [CompanyHomeController::class,'history']);
+    Route::get('article', [CompanyHomeController::class,'article']);
+    Route::post('article/store', [CompanyHomeController::class,'store']);
+    Route::get('articlemanagement', [CompanyHomeController::class,'articlemanagement']);
+    Route::delete('articlemanagement/{id}', [CompanyHomeController::class,'deletearticle']);
+    Route::delete('trainingmanagement/{id}', [CompanyHomeController::class,'deletetraining']);
     Route::put('home/{id}/update', [CompanyHomeController::class,'update']);
+    Route::put('editprofile/{id}/edit', [CompanyHomeController::class,'updateprofile']);
     Route::put('home/{id}', [CompanyHomeController::class,'close']);
     Route::delete('home/{id}', [CompanyHomeController::class,'delete']);
 
@@ -68,22 +78,17 @@ Route::prefix('company')->middleware('auth','isCom')->group(function(){
 
 // });
 
-Route::get('/', function() {
-    return view('user.index');
-});
+Route::get('/', [UserController::class, 'show']);
 Route::get('/findjob', [UserController::class, 'showjobs']);
-Route::get('/training', function () {
-    return view('user.training');
-});
-Route::get('/article', function () {
-    return view('user.article');
-});
+Route::get('/search', [UserController::class, 'search']);
+Route::get('/training', [UserController::class, 'training']);
+Route::get('/detailtraining{id}', [UserController::class, 'detailtraining']);
+Route::get('/article', [UserController::class, 'article']);
+Route::get('/readarticle/{id}', [UserController::class, 'readarticle']);
 Route::get('/about', function () {
     return view('user.about');
 });
-Route::get('/jobdetail', function () {
-    return view('user.jobdetail');
-});
+Route::get('/jobdetail/{id}', [UserController::class, 'detail']);
 
 Auth::routes();
 

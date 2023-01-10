@@ -4,6 +4,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <body>
 
 <!-- Sidebar -->
@@ -38,36 +44,30 @@
     <!-- Page Content -->
     <div style="margin-left:15%">
         <div class="w3-container w3-gray">
-            <h3 class="text-light m-3">Recruitment | {{ Auth::user()->name }}</h3>
-        </div>
-        <div class="w3-container">
-            <form action="/company/training/store" method="post">
-                @csrf
-                <h3 class="text-center fw-semibold mt-3">Training</h3>
-                <div class="container w-50">
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Training Name</h6>
-                        <input name="trainer" class="form-control" type="text" value="{{ Auth::user()->name }}" hidden>
-                        <input name="trainingname" class="form-control" type="text" placeholder="Training Name">
-                    </div>
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Training Link</h6>
-                        <input name="link" class="form-control" type="text" placeholder="Training Link">
-                    </div>
-
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Description</h6>
-                            <div class="">
-                                <textarea id="desc" type="textarea" class="form-control" name="description" value="" placeholder="Training Description"></textarea>
-                            </div>
-                          </select>
-                    </div>
-                    <input class="btn btn-primary" type="submit" name="save" value="Publish Training">
-                </div>
-            </form>
+            <h3 class="text-light m-3">Article | {{ Auth::user()->name }}</h3>
         </div>
 
     </div>
+    <div class="container w-50">
+        <form action="article/store" method="post">
+            @csrf
+            <div class="mb-3 mt-3">
+                <h5 class="text-start">Article Title</h5>
+                <input name="title" class="form-control" type="text" placeholder="Title">
+                <input name="publisher" class="form-control" type="text" value="{{ Auth::user()->name }}" hidden>
+            </div>
+            <h5 class="text-start">Body</h5>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <script >
+                $(document).ready(function() {
+                    $('#description').summernote({height: 200, placeholder: 'write content here'});
+
+                });
+            </script>
+            <input class="btn btn-primary" type="submit" name="save" value="Publish Article">
+        </form>
+    </div>
+
 
 </body>
 </html>

@@ -12,8 +12,7 @@
         <a href="home" class="w3-bar-item w3-button">Home</a>
         <a href="recruitment" class="w3-bar-item w3-button">Recruitment</a>
         <a href="training" class="w3-bar-item w3-button">Training</a>
-        <a href="trainingmanagement" class="w3-bar-item w3-button">Training Management</a>
-        <a href="history" class="w3-bar-item w3-button">History</a>
+        <a href="#" class="w3-bar-item w3-button">History</a>
         <a href="article" class="w3-bar-item w3-button">Write Article</a>
         <a href="articlemanagement" class="w3-bar-item w3-button">Article Management</a>
         <a href="profile" class="w3-bar-item w3-button">Profile</a>
@@ -38,33 +37,41 @@
     <!-- Page Content -->
     <div style="margin-left:15%">
         <div class="w3-container w3-gray">
-            <h3 class="text-light m-3">Recruitment | {{ Auth::user()->name }}</h3>
+            <h1 class="text-light m-3">Profile | {{ Auth::user()->name }}</h1>
         </div>
         <div class="w3-container">
-            <form action="/company/training/store" method="post">
-                @csrf
-                <h3 class="text-center fw-semibold mt-3">Training</h3>
-                <div class="container w-50">
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Training Name</h6>
-                        <input name="trainer" class="form-control" type="text" value="{{ Auth::user()->name }}" hidden>
-                        <input name="trainingname" class="form-control" type="text" placeholder="Training Name">
-                    </div>
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Training Link</h6>
-                        <input name="link" class="form-control" type="text" placeholder="Training Link">
-                    </div>
+            <center>
+                <form action="editprofile/{{ Auth::user()->id }}/edit" method="post">
+                    @method('put')
+                    @csrf
 
-                    <div class="mb-3 mt-3">
-                        <h6 class="text-start">Description</h6>
-                            <div class="">
-                                <textarea id="desc" type="textarea" class="form-control" name="description" value="" placeholder="Training Description"></textarea>
-                            </div>
-                          </select>
+            <div class="container w-50 text-start mt-5">
+                <div class="row mb-3">
+                    <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Company Name') }}</label>
+                    <div class="col-md-6">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}">
                     </div>
-                    <input class="btn btn-primary" type="submit" name="save" value="Publish Training">
                 </div>
-            </form>
+            </div>
+            <div class="container w-50 text-start">
+                <div class="row mb-3">
+                    <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+                    <div class="col-md-6">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="email" value="{{ Auth::user()->email }}">
+                    </div>
+                </div>
+            </div>
+            <div class="container w-50 text-start">
+                <div class="row mb-3">
+                    <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
+                    <div class="col-md-6">
+                        <textarea id="desc" type="textarea" class="form-control @error('desc') is-invalid @enderror" name="desc" value="">{{ Auth::user()->desc }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <input class="btn btn-primary" type="submit" name="submit" value="Update Profile">
+        </form>
+            </center>
         </div>
 
     </div>

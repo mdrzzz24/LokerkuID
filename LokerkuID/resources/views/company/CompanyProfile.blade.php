@@ -12,8 +12,27 @@
         <a href="home" class="w3-bar-item w3-button">Home</a>
         <a href="recruitment" class="w3-bar-item w3-button">Recruitment</a>
         <a href="training" class="w3-bar-item w3-button">Training</a>
+        <a href="trainingmanagement" class="w3-bar-item w3-button">Training Management</a>
         <a href="#" class="w3-bar-item w3-button">History</a>
+        <a href="article" class="w3-bar-item w3-button">Write Article</a>
+        <a href="articlemanagement" class="w3-bar-item w3-button">Article Management</a>
         <a href="profile" class="w3-bar-item w3-button">Profile</a>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">{{ Auth::user()->name }}</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <div class="w3-bar-item w3-button" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Page Content -->
@@ -43,11 +62,11 @@
                 <div class="row mb-3">
                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
                     <div class="col-md-6">
-                        <textarea id="desc" type="textarea" class="form-control @error('desc') is-invalid @enderror" name="desc" value="" readonly>{{ Auth::user()->email }}</textarea>
+                        <textarea id="desc" type="textarea" class="form-control @error('desc') is-invalid @enderror" name="desc" value="" readonly>{{ Auth::user()->desc }}</textarea>
                     </div>
                 </div>
             </div>
-            <p>Change Password? <a href="chanecompanypw"> Click here</a></p>
+            <p>Change Password? <a href="changecompanypw"> Click here</a></p>
             <a href="editcomprofile">
                 <button class="btn btn-primary" type="submit">Edit Profile</button>
             </a>

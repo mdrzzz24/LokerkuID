@@ -5,92 +5,43 @@
         <h1 style="margin-top:-70px;" class="position-absolute top-50 start-50 translate-middle fw-bolder text-light">Find a job</h1>
         <h6 style="margin-top:-40px;" class="position-absolute top-50 start-50 translate-middle-x text-light">Find your dream job at LokerkuID</h6>
         <div class="container">
-          <form  action="" method="post">
+        <form action="/findjob" method="get">
+            @method('get')
             <div class="container">
               <input style="margin-top: 10px; width:30%; background-color:rgba(255, 255, 255, 0.553) !important; border:2px !important; border-style:solid !important; border-color:white !important;"
-              name="find" type="text" class="form-control position-absolute top-50 start-50 translate-middle" placeholder="Find a job">
-              <input style="margin-top: 40px;" name="find" class="btn btn-outline-light position-absolute top-50 start-50 translate-middle-x" type="submit" value="Find">
+              name="search" type="text" class="form-control position-absolute top-50 start-50 translate-middle" placeholder="Find a job">
+              <button style="margin-top: 40px;" type="submit" class="btn btn-outline-light position-absolute top-50 start-50 translate-middle-x">Find</button>
+              {{-- <input style="margin-top: 40px;" name="find" class="btn btn-outline-light position-absolute top-50 start-50 translate-middle-x" type="submit" value="Find"> --}}
             </div>
+        </form>
           </form>
         </div>
       </div>
     </div>
       <div class="container">
         <h3 class="mt-4 mb-3 text-center fw-semibold">Suggestion Job</h3>
-        <div class="row mb-4">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title fw-semibold">Business Analyst</h5>
-                  <h6>PT BSR INDONESIA</h6>
-                  <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Joglo, Jakarta<br>
-                  <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">The company does not display salary<br>
-                  <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                </div>
+        <div class="row mb-4"><div class="row mb-4">
+
+        @foreach ($job->slice(0,4) as $j)
+        <div class="col-sm-6 mb-3 mb-sm-0 mt-3">
+            <div class="card border border-1">
+              <div class="card-body text-start mx-3">
+                <h5 class="card-title fw-semibold">{{ $j->jobname }}</h5>
+                <h6>{{ $j->recruiter }}</h6>
+                <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">{{ $j->city }}<br>
+                <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp {{ $j->salary }}/month<br>
+                <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
               </div>
             </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title fw-semibold">Ecommerce Specialist</h5>
-                      <h6>PT Sumber Sinergi Makmur</h6>
-                      <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Sawah Besar, Jakarta<br>
-                      <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp 5.000.000<br>
-                      <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                    </div>
-                  </div>
+          </div>
+            @endforeach
             </div>
-          </div>
-          <div class="row mb-4">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title fw-semibold">Sales Manager Advertising</h5>
-                    <h6>Ubiklan</h6>
-                    <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Cengkareng, Jakarta Barat<br>
-                    <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">The company does not display salary<br>
-                    <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                  <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title fw-semibold">Sales Executive</h5>
-                        <h6>PT Cartrack Technologies Indonesia</h6>
-                        <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Jakarta Barat<br>
-                        <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">The company does not display salary<br>
-                        <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                      </div>
-                    </div>
-              </div>
-          </div>
-          <div class="row mb-4">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title fw-semibold">Franchise Manager</h5>
-                    <h6>PT Nuvens Prima Retail</h6>
-                    <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Jakarta Barat<br>
-                    <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp 8.000.000<br>
-                    <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                  <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title fw-semibold">Content Creator</h5>
-                        <h6>Bengawan Jaya Abadi</h6>
-                        <img style="height:20px; padding-right:10px;" src="assets/pin.png" alt="">Sukoharjo<br>
-                        <img style="height:20px; padding-right:10px;" src="assets/dollar-symbol.png" alt="">Rp 3.000.000<br>
-                        <a href="jobdetail" class="btn btn-primary mt-2">See detail</a>
-                      </div>
-                    </div>
-              </div>
-          </div>
+
+
           <center>
-              <button class="submit btn btn-primary">See More</button>
+            <a href="/findjob">
+                <button class="submit btn btn-primary">See More</button>
+            </a>
           </center>
           <div class="container-fluid">
             <h3 class="mt-4 mb-3 text-center fw-semibold">Job Category</h3>
@@ -143,6 +94,7 @@
               </div>
           </div>
       </div>
+      </div>
       <div class="container-fluid-100 p-2" style="background-color: rgb(243, 243, 243);">
         <h3 class="fw-semibold text-center">You Have a Company?</h3>
         <div class="container w-50">
@@ -156,6 +108,8 @@
             </a>
         </div>
       </div>
+      </div>
+
          @endsection
 {{-- @extends('layouts.app')
 

@@ -86,6 +86,9 @@
                         </div>
                         </select>
                 </div>
+                <a style="text-decoration: none;" href="company/index">
+                <button class="btn btn-secondary">Back</button>
+                </a>
                 <input class="btn btn-primary" type="submit" name="submit" value="Edit Recruitment">
             </div>
         </form>

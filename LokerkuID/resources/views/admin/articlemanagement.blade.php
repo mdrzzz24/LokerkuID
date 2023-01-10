@@ -14,7 +14,7 @@
         <a href="article" class="w3-bar-item w3-button">Write Article</a>
         <a href="articlemanagement" class="w3-bar-item w3-button">Article Management</a>
         <div class="w3-dropdown-hover">
-            <button class="w3-button">Admin</button>
+            <button class="w3-button">{{ Auth::user()->name }}</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
                 <div class="w3-bar-item w3-button" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -37,7 +37,7 @@
             <h3 class="text-light m-3">Article Management | {{ Auth::user()->name }}</h3>
         </div>
         <div class="container-75 m-5">
-            <h3 class="fw-semibold">Users</h3>
+            <h3 class="fw-semibold">Your Article</h3>
             <div class="container border border-2 rounded-4">
                 <table class="table">
                     <thead>
@@ -60,6 +60,43 @@
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <form action="/admin/articlemanagement/{{ $d->id }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <input class="btn btn-danger rounded-0" type="submit" value="Delete">
+                                </form>
+                            </div>
+
+                        </td>
+                    </tr>
+                     @endforeach
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        <div class="container-75 m-5">
+            <h3 class="fw-semibold">All Article</h3>
+            <div class="container border border-2 rounded-4">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Publisher</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Create At</th>
+                        <th scope="col">Update At</th>
+                        <th scope="col">Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($data2 as $d2)
+                    <tr>
+                        <td>{{ $d2->publisher }}</td>
+                        <td>{{ $d2->title}}</td>
+                        <td>{{ $d2->created_at }}</td>
+                        <td>{{ $d2->updated_at}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <form action="/admin/articlemanagement/{{ $d2->id }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <input class="btn btn-danger rounded-0" type="submit" value="Delete">
