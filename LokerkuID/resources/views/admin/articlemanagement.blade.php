@@ -34,7 +34,7 @@
     <!-- Page Content -->
     <div style="margin-left:15%">
         <div class="w3-container w3-gray">
-            <h3 class="text-light m-3">Job Management | {{ Auth::user()->name }}</h3>
+            <h3 class="text-light m-3">Article Management | {{ Auth::user()->name }}</h3>
         </div>
         <div class="container-75 m-5">
             <h3 class="fw-semibold">Users</h3>
@@ -42,35 +42,30 @@
                 <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">Recruiter</th>
-                        <th scope="col">Job Name</th>
-                        <th scope="col">City</th>
-                        <th scope="col">Salary</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Experience</th>
-                        <th scope="col">Remote Working</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Publisher</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Create At</th>
+                        <th scope="col">Update At</th>
                         <th scope="col">Action</th>
+
                       </tr>
                     </thead>
                     <tbody>
                     @foreach ($data as $d)
                     <tr>
-                        <td>{{ $d->recruiter }}</td>
-                        <td>{{ $d->jobname}}</td>
-                        <td>{{ $d->city }}</td>
-                        <td>{{ $d->salary}}</td>
-                        <td>{{ $d->type}}</td>
-                        <td>{{ $d->experience}}</td>
-                        <td>{{ $d->desc}}</td>
-                        <td>{{ $d->status}}</td>
+                        <td>{{ $d->publisher }}</td>
+                        <td>{{ $d->title}}</td>
+                        <td>{{ $d->created_at }}</td>
+                        <td>{{ $d->updated_at}}</td>
                         <td>
-                            <form action="/admin/jobmanagement/{{ $d->id }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <input class="btn btn-danger" type="submit" value="Delete">
-                            </form>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <form action="/admin/articlemanagement/{{ $d->id }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <input class="btn btn-danger rounded-0" type="submit" value="Delete">
+                                </form>
+                            </div>
+
                         </td>
                     </tr>
                      @endforeach
@@ -79,6 +74,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
+

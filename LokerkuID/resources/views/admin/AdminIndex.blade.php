@@ -9,9 +9,26 @@
 <!-- Sidebar -->
     <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
         <img class="m-3" style="width: 180px;" src="{{ asset('assets/Logo LokerkuID.png') }}" alt="Logo LokerkuID" srcset="">
-        <a href="home" class="w3-bar-item w3-button">User Management</a>
+        <a href="/admin" class="w3-bar-item w3-button">User Management</a>
         <a href="admin/jobmanagement" class="w3-bar-item w3-button">Job Management</a>
-        <a href="admin/article" class="w3-bar-item w3-button">Article</a>
+        <a href="admin/article" class="w3-bar-item w3-button">Write Article</a>
+        <a href="admin/articlemanagement" class="w3-bar-item w3-button">Article Management</a>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Admin</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <div class="w3-bar-item w3-button" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Page Content -->

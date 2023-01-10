@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img style="width: 120px; margin-left:50px;" src="{{ asset('assets/Logo LokerkuID.png') }}" alt="" srcset=""></a>

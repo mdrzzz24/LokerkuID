@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CompanyHomeController;
 use App\Http\Controllers\InsertRecruitmentController;
 use Illuminate\Support\Facades\Auth;
@@ -31,9 +32,13 @@ Route::get('/compregist', function () {
 Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
     Route::get('/', [AdminController::class, 'usermanagement'] );
     Route::get('/jobmanagement', [AdminController::class, 'jobmanagement'] );
-    Route::get('/article', [AdminController::class, 'article'] );
+    Route::get('/article', [ArticleController::class, 'article'] );
+    Route::post('/store', [ArticleController::class,'store']);
+    Route::post('/article', [ArticleController::class, 'store']);
+    Route::get('/articlemanagement', [ArticleController::class, 'articlemanagement']);
     Route::delete('/{id}', [AdminController::class,'delete']);
     Route::delete('jobmanagement/{id}', [AdminController::class,'deletejob']);
+    Route::delete('articlemanagement/{id}', [ArticleController::class,'deletepost']);
 });
 
 
